@@ -12,13 +12,16 @@ parser.add_argument("-t","--target", default="127.0.0.1", help="Can be used to s
 parser.add_argument("-p","--port", default=10080, help="Sets the Port (Default 10080)", dest="PORT")
 
 args = parser.parse_args()
-
-API_KEY = str(args.API_KEY)
-MODE = str(args.MODE)
-WARNING = int(args.WARNING)
-CRITICAL = int(args.CRITICAL)
-TARGET = str(args.TARGET)
-PORT = str(args.PORT)
+try:
+	API_KEY = str(args.API_KEY)
+	MODE = str(args.MODE)
+	WARNING = int(args.WARNING)
+	CRITICAL = int(args.CRITICAL)
+	TARGET = str(args.TARGET)
+	PORT = str(args.PORT)
+except:
+	print("Error check your arguments")
+	exit(3)
 
 if MODE == "usernumber":
 	res = requests.get("http://"+TARGET+":"+PORT+"/1/serverinfo", headers={"x-api-key":API_KEY})
