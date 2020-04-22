@@ -13,11 +13,11 @@ parser.add_argument("-p","--port", default=10080, help="Sets the Port (Default 1
 
 args = parser.parse_args()
 
-API_KEY = args.API_KEY
-MODE = args.MODE
-WARNING = args.WARNING
-CRITICAL = args.CRITICAL
-TARGET = args.TARGET
+API_KEY = str(args.API_KEY)
+MODE = str(args.MODE)
+WARNING = int(args.WARNING)
+CRITICAL = int(args.CRITICAL)
+TARGET = str(args.TARGET)
 PORT = str(args.PORT)
 
 if MODE == "usernumber":
